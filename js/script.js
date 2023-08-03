@@ -53,7 +53,9 @@ function dragDrop () {
 }
 
 function dragEnd () {
-    
+    if (!otherTile.src.includes("3.jpg")) {
+        return
+    }
 
 
     let currCoords = currTile.id.split("-"); // ex) "0-0" -> ["0", "0"]
@@ -78,6 +80,9 @@ function dragEnd () {
     
         currTile.src = otherImg;
         otherTile.src = currImg;
+
+        turns += 1;
+        document.getElementById("turns").innerText = turns;
 
     }
 
